@@ -6,14 +6,14 @@
 
 =head1 NAME
 
-bitcoind_blocks - Plugin to monitor the number of blocks
+uraniumxd_blocks - Plugin to monitor the number of blocks
 
 =head1 CONFIGURATION
 
- [bitcoind*]
-    user bitcoin
-    env.binary bitcoin-cli
-    env.data_dir /var/lib/bitcoin
+ [uraniumxd*]
+    user uraniumx
+    env.binary uraniumx-cli
+    env.data_dir /var/lib/uraniumx
 
 =head1 AUTHOR
 
@@ -30,8 +30,8 @@ AGPLv3+
 
 =cut
 
-BINARY=${binary:-"/usr/bin/bitcoin-cli"}
-DATA_DIR=${data_dir:-"/var/lib/bitcoin"}
+BINARY=${binary:-"/usr/bin/uraniumx-cli"}
+DATA_DIR=${data_dir:-"/var/lib/uraniumx"}
 
 if [ "$1" = "autoconf" ]; then
     autoconf="yes"
@@ -45,12 +45,12 @@ fi
 if [ "$1" = "config" ]; then
     echo 'graph_title Block count'
     echo 'graph_vlabel number of blocks'
-    echo 'graph_category bitcoind'
+    echo 'graph_category uraniumxd'
     echo 'graph_info This graph shows the number of blocks.'
-    echo 'bitcoind_blocks.label blocks'
-    echo 'bitcoind_blocks.info The current number of blocks.'
+    echo 'uraniumxd_blocks.label blocks'
+    echo 'uraniumxd_blocks.info The current number of blocks.'
     exit 0
 fi
 
-echo "bitcoind_blocks.value $($BINARY -datadir=$DATA_DIR getblockcount)"
+echo "uraniumxd_blocks.value $($BINARY -datadir=$DATA_DIR getblockcount)"
 

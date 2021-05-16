@@ -6,14 +6,14 @@
 
 =head1 NAME
 
-bitcoind_mempool - Plugin to monitor the size of the mempool
+uraniumxd_mempool - Plugin to monitor the size of the mempool
 
 =head1 CONFIGURATION
 
- [bitcoind*]
-    user bitcoin
-    env.binary bitcoin-cli
-    env.data_dir /var/lib/bitcoin
+ [uraniumxd*]
+    user uraniumx
+    env.binary uraniumx-cli
+    env.data_dir /var/lib/uraniumx
 
 =head1 AUTHOR
 
@@ -30,14 +30,14 @@ AGPLv3+
 
 =cut
 
-METRIC=${0##*/bitcoind_mempool_}
+METRIC=${0##*/uraniumxd_mempool_}
 case $METRIC in
   size|bytes);;
   *) exit 1;;
 esac
 
-BINARY=${binary:-"/usr/bin/bitcoin-cli"}
-DATA_DIR=${data_dir:-"/var/lib/bitcoin"}
+BINARY=${binary:-"/usr/bin/uraniumx-cli"}
+DATA_DIR=${data_dir:-"/var/lib/uraniumx"}
 
 if [ "$1" = "autoconf" ]; then
     autoconf="yes"
@@ -51,7 +51,7 @@ fi
 if [ "$1" = "config" ]; then
     echo "graph_title Mempool ${METRIC}"
     echo "graph_vlabel ${METRIC}"
-    echo "graph_category bitcoind"
+    echo "graph_category uraniumxd"
     echo "${METRIC}.label mempool (${METRIC})"
     exit 0
 fi
