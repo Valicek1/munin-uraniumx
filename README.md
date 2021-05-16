@@ -17,7 +17,7 @@ Original code from [infertux/munin-bitcoin](https://github.com/infertux/munin-bi
     # env.data_dir /var/lib/uraniumx
     ```
 
-    This will tell Munin to run `uraniumx-cli` as the `bitcoin` user. Adapt it to your setup and avoid using `root`.
+    This will tell Munin to run `uraniumx-cli` as the `uraniumx` user. Adapt it to your setup and avoid using `root`.
 
 1. Restart the *munin-node* daemon with `systemctl restart munin-node` or `/etc/init.d/munin-node restart`.
 
